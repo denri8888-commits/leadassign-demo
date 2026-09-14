@@ -1,0 +1,1615 @@
+{
+  "title": "Current 70 leads optimality audit",
+  "date": "2026-09-14",
+  "CODE_CHANGED": "NO",
+  "input": {
+    "source": "generate_demo_bundle(seed=42, scenario='normal') — same as AppState default dashboard",
+    "seed": 42,
+    "scenario": "normal",
+    "as_of": "2026-09-14",
+    "n_leads": 70,
+    "managers": [
+      "Менеджер 1",
+      "Менеджер 2",
+      "Менеджер 3",
+      "Менеджер 4",
+      "Менеджер 5"
+    ],
+    "capacities": {
+      "Менеджер 1": 10,
+      "Менеджер 2": 10,
+      "Менеджер 3": 10,
+      "Менеджер 4": 10,
+      "Менеджер 5": 10
+    },
+    "team_capacity": 50,
+    "assignment_mode": "optimal",
+    "hard_constraints": [
+      "x binary",
+      "each lead at most one manager",
+      "each manager <= capacity_m",
+      "total assignments <= team_capacity",
+      "no other eligibility filters in production path"
+    ]
+  },
+  "dashboard": {
+    "selected": 50,
+    "queued": 20,
+    "kpi_expected_gm": 6074.34,
+    "objective_recomputed_from_scores": 6074.34,
+    "assignments": {
+      "A1041": "Менеджер 3",
+      "A1034": "Менеджер 3",
+      "A1004": "Менеджер 3",
+      "A1005": "Менеджер 3",
+      "A1020": "Менеджер 3",
+      "A1038": "Менеджер 3",
+      "A1059": "Менеджер 3",
+      "A1006": "Менеджер 3",
+      "A1058": "Менеджер 3",
+      "A1064": "Менеджер 3",
+      "A1032": "Менеджер 4",
+      "A1068": "Менеджер 4",
+      "A1029": "Менеджер 4",
+      "A1065": "Менеджер 4",
+      "A1001": "Менеджер 1",
+      "A1016": "Менеджер 1",
+      "A1025": "Менеджер 1",
+      "A1052": "Менеджер 1",
+      "A1054": "Менеджер 1",
+      "A1000": "Менеджер 5",
+      "A1010": "Менеджер 5",
+      "A1030": "Менеджер 5",
+      "A1031": "Менеджер 5",
+      "A1069": "Менеджер 5",
+      "A1011": "Менеджер 2",
+      "A1003": "Менеджер 2",
+      "A1014": "Менеджер 2",
+      "A1021": "Менеджер 2",
+      "A1035": "Менеджер 2",
+      "A1046": "Менеджер 2",
+      "A1049": "Менеджер 2",
+      "A1053": "Менеджер 2",
+      "A1055": "Менеджер 2",
+      "A1002": "Менеджер 4",
+      "A1023": "Менеджер 4",
+      "A1043": "Менеджер 4",
+      "A1008": "Менеджер 4",
+      "A1013": "Менеджер 4",
+      "A1051": "Менеджер 4",
+      "A1040": "Менеджер 5",
+      "A1061": "Менеджер 5",
+      "A1067": "Менеджер 5",
+      "A1012": "Менеджер 5",
+      "A1042": "Менеджер 5",
+      "A1019": "Менеджер 1",
+      "A1022": "Менеджер 1",
+      "A1060": "Менеджер 1",
+      "A1009": "Менеджер 1",
+      "A1044": "Менеджер 1",
+      "A1024": "Менеджер 2"
+    },
+    "load": {
+      "Менеджер 3": 10,
+      "Менеджер 4": 10,
+      "Менеджер 1": 10,
+      "Менеджер 5": 10,
+      "Менеджер 2": 10
+    },
+    "queue_displayed_expected_gm_meaning": "For selected leads: Expected GM of ASSIGNED manager. For queued leads: Expected GM of BEST manager across all managers (pipeline.py: chosen.expected_gm if selected else best_possible.expected_gm)."
+  },
+  "score_consistency": {
+    "selected_mismatches": [],
+    "queue_matches_best_manager_score": true,
+    "queue_checks_sample": [
+      {
+        "lead_id": "A1033",
+        "dashboard_expected_gm": 91.51,
+        "best_manager": "Менеджер 5",
+        "best_score": 91.51,
+        "matches_best": true,
+        "assigned_manager_on_dashboard": null
+      },
+      {
+        "lead_id": "A1018",
+        "dashboard_expected_gm": 91.51,
+        "best_manager": "Менеджер 5",
+        "best_score": 91.51,
+        "matches_best": true,
+        "assigned_manager_on_dashboard": null
+      },
+      {
+        "lead_id": "A1039",
+        "dashboard_expected_gm": 79.23,
+        "best_manager": "Менеджер 1",
+        "best_score": 79.23,
+        "matches_best": true,
+        "assigned_manager_on_dashboard": null
+      },
+      {
+        "lead_id": "A1063",
+        "dashboard_expected_gm": 76.28,
+        "best_manager": "Менеджер 2",
+        "best_score": 76.28,
+        "matches_best": true,
+        "assigned_manager_on_dashboard": null
+      },
+      {
+        "lead_id": "A1015",
+        "dashboard_expected_gm": 79.23,
+        "best_manager": "Менеджер 1",
+        "best_score": 79.23,
+        "matches_best": true,
+        "assigned_manager_on_dashboard": null
+      }
+    ]
+  },
+  "independent_optimum": {
+    "production_optimal_assign_objective": 6074.34,
+    "independent_pulp_objective": 6074.34,
+    "n_assigned": 50,
+    "assignments": {
+      "A1000": "Менеджер 5",
+      "A1001": "Менеджер 1",
+      "A1002": "Менеджер 4",
+      "A1003": "Менеджер 2",
+      "A1004": "Менеджер 3",
+      "A1005": "Менеджер 3",
+      "A1006": "Менеджер 3",
+      "A1008": "Менеджер 4",
+      "A1009": "Менеджер 1",
+      "A1010": "Менеджер 5",
+      "A1011": "Менеджер 2",
+      "A1012": "Менеджер 5",
+      "A1013": "Менеджер 4",
+      "A1014": "Менеджер 2",
+      "A1016": "Менеджер 1",
+      "A1019": "Менеджер 1",
+      "A1020": "Менеджер 3",
+      "A1021": "Менеджер 2",
+      "A1022": "Менеджер 1",
+      "A1023": "Менеджер 4",
+      "A1024": "Менеджер 2",
+      "A1025": "Менеджер 1",
+      "A1029": "Менеджер 4",
+      "A1030": "Менеджер 5",
+      "A1031": "Менеджер 5",
+      "A1032": "Менеджер 4",
+      "A1034": "Менеджер 3",
+      "A1035": "Менеджер 2",
+      "A1038": "Менеджер 3",
+      "A1040": "Менеджер 5",
+      "A1041": "Менеджер 3",
+      "A1042": "Менеджер 5",
+      "A1043": "Менеджер 4",
+      "A1044": "Менеджер 1",
+      "A1046": "Менеджер 2",
+      "A1049": "Менеджер 2",
+      "A1051": "Менеджер 4",
+      "A1052": "Менеджер 1",
+      "A1053": "Менеджер 2",
+      "A1054": "Менеджер 1",
+      "A1055": "Менеджер 2",
+      "A1058": "Менеджер 3",
+      "A1059": "Менеджер 3",
+      "A1060": "Менеджер 1",
+      "A1061": "Менеджер 5",
+      "A1064": "Менеджер 3",
+      "A1065": "Менеджер 4",
+      "A1067": "Менеджер 5",
+      "A1068": "Менеджер 4",
+      "A1069": "Менеджер 5"
+    },
+    "load": {
+      "Менеджер 5": 10,
+      "Менеджер 1": 10,
+      "Менеджер 4": 10,
+      "Менеджер 2": 10,
+      "Менеджер 3": 10
+    },
+    "matches_production_optimal_assign": true
+  },
+  "comparison": {
+    "case": "A",
+    "same_selected_set": true,
+    "same_assignments": true,
+    "only_in_dashboard": [],
+    "only_in_optimum": [],
+    "assignment_diffs": [],
+    "CURRENT_DASHBOARD_OBJECTIVE": 6074.34,
+    "OPTIMAL_OBJECTIVE": 6074.34,
+    "ABSOLUTE_GAP": -0.0,
+    "RELATIVE_GAP": -0.0
+  },
+  "manager_load": [
+    {
+      "manager": "Менеджер 1",
+      "capacity": 10,
+      "assigned_count": 10,
+      "unused_capacity": 0
+    },
+    {
+      "manager": "Менеджер 2",
+      "capacity": 10,
+      "assigned_count": 10,
+      "unused_capacity": 0
+    },
+    {
+      "manager": "Менеджер 3",
+      "capacity": 10,
+      "assigned_count": 10,
+      "unused_capacity": 0
+    },
+    {
+      "manager": "Менеджер 4",
+      "capacity": 10,
+      "assigned_count": 10,
+      "unused_capacity": 0
+    },
+    {
+      "manager": "Менеджер 5",
+      "capacity": 10,
+      "assigned_count": 10,
+      "unused_capacity": 0
+    }
+  ],
+  "queue_analysis": [
+    {
+      "queue_lead": "A1033",
+      "best_manager": "Менеджер 5",
+      "best_score": 91.51,
+      "dashboard_displayed_gm": 91.51,
+      "blocking_capacity": "Менеджер 5",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1012",
+      "competitor_score": 91.51,
+      "simple_swap_delta_vs_weakest_on_best": 0.0,
+      "force_select_objective": 6074.34,
+      "force_select_delta_vs_optimum": 0.0,
+      "force_select_displaces": [
+        "A1042"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 5",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1018",
+      "best_manager": "Менеджер 5",
+      "best_score": 91.51,
+      "dashboard_displayed_gm": 91.51,
+      "blocking_capacity": "Менеджер 5",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1012",
+      "competitor_score": 91.51,
+      "simple_swap_delta_vs_weakest_on_best": 0.0,
+      "force_select_objective": 6074.34,
+      "force_select_delta_vs_optimum": 0.0,
+      "force_select_displaces": [
+        "A1042"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 5",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1039",
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "dashboard_displayed_gm": 79.23,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -4.86,
+      "force_select_objective": 6070.1,
+      "force_select_delta_vs_optimum": -4.24,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1063",
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "dashboard_displayed_gm": 76.28,
+      "blocking_capacity": "Менеджер 2",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1024",
+      "competitor_score": 76.28,
+      "simple_swap_delta_vs_weakest_on_best": 0.0,
+      "force_select_objective": 6074.34,
+      "force_select_delta_vs_optimum": 0.0,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1015",
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "dashboard_displayed_gm": 79.23,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -4.86,
+      "force_select_objective": 6070.1,
+      "force_select_delta_vs_optimum": -4.24,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1027",
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "dashboard_displayed_gm": 79.23,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -4.86,
+      "force_select_objective": 6070.1,
+      "force_select_delta_vs_optimum": -4.24,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1037",
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "dashboard_displayed_gm": 79.23,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -4.86,
+      "force_select_objective": 6070.1,
+      "force_select_delta_vs_optimum": -4.24,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1047",
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "dashboard_displayed_gm": 79.23,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -4.86,
+      "force_select_objective": 6070.1,
+      "force_select_delta_vs_optimum": -4.24,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1050",
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "dashboard_displayed_gm": 79.23,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -4.86,
+      "force_select_objective": 6070.1,
+      "force_select_delta_vs_optimum": -4.24,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1057",
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "dashboard_displayed_gm": 79.23,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -4.86,
+      "force_select_objective": 6070.1,
+      "force_select_delta_vs_optimum": -4.24,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1028",
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "dashboard_displayed_gm": 69.88,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -14.21,
+      "force_select_objective": 6067.12,
+      "force_select_delta_vs_optimum": -7.22,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1007",
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "dashboard_displayed_gm": 76.28,
+      "blocking_capacity": "Менеджер 2",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1024",
+      "competitor_score": 76.28,
+      "simple_swap_delta_vs_weakest_on_best": 0.0,
+      "force_select_objective": 6074.34,
+      "force_select_delta_vs_optimum": 0.0,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1056",
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "dashboard_displayed_gm": 76.28,
+      "blocking_capacity": "Менеджер 2",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1024",
+      "competitor_score": 76.28,
+      "simple_swap_delta_vs_weakest_on_best": 0.0,
+      "force_select_objective": 6074.34,
+      "force_select_delta_vs_optimum": 0.0,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1062",
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "dashboard_displayed_gm": 76.28,
+      "blocking_capacity": "Менеджер 2",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1024",
+      "competitor_score": 76.28,
+      "simple_swap_delta_vs_weakest_on_best": 0.0,
+      "force_select_objective": 6074.34,
+      "force_select_delta_vs_optimum": 0.0,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1045",
+      "best_manager": "Менеджер 4",
+      "best_score": 74.93,
+      "dashboard_displayed_gm": 74.93,
+      "blocking_capacity": "Менеджер 4",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1008",
+      "competitor_score": 88.81,
+      "simple_swap_delta_vs_weakest_on_best": -13.88,
+      "force_select_objective": 6064.42,
+      "force_select_delta_vs_optimum": -9.92,
+      "force_select_displaces": [
+        "A1044"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 4",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1066",
+      "best_manager": "Менеджер 4",
+      "best_score": 74.93,
+      "dashboard_displayed_gm": 74.93,
+      "blocking_capacity": "Менеджер 4",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1008",
+      "competitor_score": 88.81,
+      "simple_swap_delta_vs_weakest_on_best": -13.88,
+      "force_select_objective": 6064.42,
+      "force_select_delta_vs_optimum": -9.92,
+      "force_select_displaces": [
+        "A1044"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 4",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1017",
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "dashboard_displayed_gm": 69.88,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -14.21,
+      "force_select_objective": 6067.12,
+      "force_select_delta_vs_optimum": -7.22,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1026",
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "dashboard_displayed_gm": 69.88,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -14.21,
+      "force_select_objective": 6067.12,
+      "force_select_delta_vs_optimum": -7.22,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1036",
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "dashboard_displayed_gm": 69.88,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -14.21,
+      "force_select_objective": 6067.12,
+      "force_select_delta_vs_optimum": -7.22,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    {
+      "queue_lead": "A1048",
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "dashboard_displayed_gm": 69.88,
+      "blocking_capacity": "Менеджер 1",
+      "manager_load_at_best": 10,
+      "weakest_selected_on_best_manager": "A1019",
+      "competitor_score": 84.09,
+      "simple_swap_delta_vs_weakest_on_best": -14.21,
+      "force_select_objective": 6067.12,
+      "force_select_delta_vs_optimum": -7.22,
+      "force_select_displaces": [
+        "A1024"
+      ],
+      "force_select_also_enters": [],
+      "force_select_manager": "Менеджер 2",
+      "reject_reason_ui": "низкая ожидаемая GM относительно выбранных заявок"
+    }
+  ],
+  "counterfactuals": {
+    "force_A1033": {
+      "status": "Optimal",
+      "objective": 6074.34,
+      "delta_vs_optimum": 0.0,
+      "n": 50,
+      "load": {
+        "Менеджер 5": 10,
+        "Менеджер 1": 10,
+        "Менеджер 4": 10,
+        "Менеджер 2": 10,
+        "Менеджер 3": 10
+      },
+      "displaced": [
+        "A1042"
+      ],
+      "entered": [
+        "A1033"
+      ],
+      "assignment_for_special": {
+        "A1033": "Менеджер 5",
+        "A1024": "Менеджер 2"
+      }
+    },
+    "exclude_A1024": {
+      "status": "Optimal",
+      "objective": 6074.34,
+      "delta_vs_optimum": 0.0,
+      "n": 50,
+      "load": {
+        "Менеджер 5": 10,
+        "Менеджер 1": 10,
+        "Менеджер 4": 10,
+        "Менеджер 2": 10,
+        "Менеджер 3": 10
+      },
+      "displaced": [
+        "A1024",
+        "A1042"
+      ],
+      "entered": [
+        "A1033",
+        "A1063"
+      ],
+      "assignment_for_special": {
+        "A1033": "Менеджер 5",
+        "A1024": null
+      }
+    },
+    "force_A1033_exclude_A1024": {
+      "status": "Optimal",
+      "objective": 6074.34,
+      "delta_vs_optimum": 0.0,
+      "n": 50,
+      "load": {
+        "Менеджер 5": 10,
+        "Менеджер 1": 10,
+        "Менеджер 4": 10,
+        "Менеджер 2": 10,
+        "Менеджер 3": 10
+      },
+      "displaced": [
+        "A1024",
+        "A1042"
+      ],
+      "entered": [
+        "A1033",
+        "A1063"
+      ],
+      "assignment_for_special": {
+        "A1033": "Менеджер 5",
+        "A1024": null
+      }
+    }
+  },
+  "breakdowns": {
+    "A1033_best": {
+      "lead_id": "A1033",
+      "manager": "Менеджер 5",
+      "p_sale": 0.3658,
+      "expected_gm_per_sale": 250.18,
+      "expected_gm": 91.51,
+      "check": 91.515844,
+      "fallback": "manager_region_product",
+      "n_obs": 21.73,
+      "confidence": 0.8129,
+      "region": "Гомель",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_manager": null
+    },
+    "A1033_if_assigned_in_cf": {
+      "lead_id": "A1033",
+      "manager": "Менеджер 5",
+      "p_sale": 0.3658,
+      "expected_gm_per_sale": 250.18,
+      "expected_gm": 91.51,
+      "check": 91.515844,
+      "fallback": "manager_region_product",
+      "n_obs": 21.73,
+      "confidence": 0.8129,
+      "region": "Гомель",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_manager": null
+    },
+    "A1024_assigned": {
+      "lead_id": "A1024",
+      "manager": "Менеджер 2",
+      "p_sale": 0.3288,
+      "expected_gm_per_sale": 231.98,
+      "expected_gm": 76.28,
+      "check": 76.275024,
+      "fallback": "manager_region_product",
+      "n_obs": 18.21,
+      "confidence": 0.7846,
+      "region": "Гомель",
+      "product": "офисные кресла",
+      "selected": true,
+      "dashboard_manager": "Менеджер 2"
+    },
+    "A1041_assigned": {
+      "lead_id": "A1041",
+      "manager": "Менеджер 3",
+      "p_sale": 0.4508,
+      "expected_gm_per_sale": 350.42,
+      "expected_gm": 157.95,
+      "check": 157.969336,
+      "fallback": "manager_region_product",
+      "n_obs": 24.83,
+      "confidence": 0.8324,
+      "region": "Брест",
+      "product": "шкафы",
+      "selected": true,
+      "dashboard_manager": "Менеджер 3"
+    },
+    "mid_selected": {
+      "lead_id": "A1055",
+      "manager": "Менеджер 2",
+      "p_sale": 0.4248,
+      "expected_gm_per_sale": 276.77,
+      "expected_gm": 117.57,
+      "check": 117.571896,
+      "fallback": "manager_region_product",
+      "n_obs": 24.21,
+      "confidence": 0.8288,
+      "region": "Витебск",
+      "product": "офисные столы",
+      "selected": true,
+      "dashboard_manager": "Менеджер 2"
+    },
+    "bottom_queue_best": {
+      "lead_id": "A1028",
+      "manager": "Менеджер 1",
+      "p_sale": 0.2798,
+      "expected_gm_per_sale": 249.78,
+      "expected_gm": 69.88,
+      "check": 69.888444,
+      "fallback": "manager_region_product",
+      "n_obs": 23.59,
+      "confidence": 0.8251,
+      "region": "Брест",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_manager": null
+    }
+  },
+  "special_leads": {
+    "A1019": {
+      "lead_id": "A1019",
+      "present": true,
+      "region": "Могилёв",
+      "product": "офисные кресла",
+      "selected": true,
+      "dashboard_expected_gm": 84.09,
+      "dashboard_manager": "Менеджер 1",
+      "scores_by_manager": {
+        "Менеджер 1": 84.09,
+        "Менеджер 2": 72.56,
+        "Менеджер 3": 30.32,
+        "Менеджер 4": 55.43,
+        "Менеджер 5": 56.35
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 84.09,
+      "priority": 82.26,
+      "reject_reason": null
+    },
+    "A1022": {
+      "lead_id": "A1022",
+      "present": true,
+      "region": "Могилёв",
+      "product": "офисные кресла",
+      "selected": true,
+      "dashboard_expected_gm": 84.09,
+      "dashboard_manager": "Менеджер 1",
+      "scores_by_manager": {
+        "Менеджер 1": 84.09,
+        "Менеджер 2": 72.56,
+        "Менеджер 3": 30.32,
+        "Менеджер 4": 55.43,
+        "Менеджер 5": 56.35
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 84.09,
+      "priority": 82.26,
+      "reject_reason": null
+    },
+    "A1060": {
+      "lead_id": "A1060",
+      "present": true,
+      "region": "Могилёв",
+      "product": "офисные кресла",
+      "selected": true,
+      "dashboard_expected_gm": 84.09,
+      "dashboard_manager": "Менеджер 1",
+      "scores_by_manager": {
+        "Менеджер 1": 84.09,
+        "Менеджер 2": 72.56,
+        "Менеджер 3": 30.32,
+        "Менеджер 4": 55.43,
+        "Менеджер 5": 56.35
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 84.09,
+      "priority": 82.26,
+      "reject_reason": null
+    },
+    "A1009": {
+      "lead_id": "A1009",
+      "present": true,
+      "region": "Могилёв",
+      "product": "офисные кресла",
+      "selected": true,
+      "dashboard_expected_gm": 84.09,
+      "dashboard_manager": "Менеджер 1",
+      "scores_by_manager": {
+        "Менеджер 1": 84.09,
+        "Менеджер 2": 72.56,
+        "Менеджер 3": 30.32,
+        "Менеджер 4": 55.43,
+        "Менеджер 5": 56.35
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 84.09,
+      "priority": 76.17,
+      "reject_reason": null
+    },
+    "A1044": {
+      "lead_id": "A1044",
+      "present": true,
+      "region": "Могилёв",
+      "product": "офисные кресла",
+      "selected": true,
+      "dashboard_expected_gm": 84.09,
+      "dashboard_manager": "Менеджер 1",
+      "scores_by_manager": {
+        "Менеджер 1": 84.09,
+        "Менеджер 2": 72.56,
+        "Менеджер 3": 30.32,
+        "Менеджер 4": 55.43,
+        "Менеджер 5": 56.35
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 84.09,
+      "priority": 76.17,
+      "reject_reason": null
+    },
+    "A1024": {
+      "lead_id": "A1024",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные кресла",
+      "selected": true,
+      "dashboard_expected_gm": 76.28,
+      "dashboard_manager": "Менеджер 2",
+      "scores_by_manager": {
+        "Менеджер 1": 71.45,
+        "Менеджер 2": 76.28,
+        "Менеджер 3": 66.14,
+        "Менеджер 4": 62.34,
+        "Менеджер 5": 54.58
+      },
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "priority": 68.06,
+      "reject_reason": null
+    },
+    "A1033": {
+      "lead_id": "A1033",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_expected_gm": 91.51,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 59.46,
+        "Менеджер 2": 59.51,
+        "Менеджер 3": 69.86,
+        "Менеджер 4": 64.07,
+        "Менеджер 5": 91.51
+      },
+      "best_manager": "Менеджер 5",
+      "best_score": 91.51,
+      "priority": 89.59,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1018": {
+      "lead_id": "A1018",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_expected_gm": 91.51,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 59.46,
+        "Менеджер 2": 59.51,
+        "Менеджер 3": 69.86,
+        "Менеджер 4": 64.07,
+        "Менеджер 5": 91.51
+      },
+      "best_manager": "Менеджер 5",
+      "best_score": 91.51,
+      "priority": 82.95,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1039": {
+      "lead_id": "A1039",
+      "present": true,
+      "region": "Витебск",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 79.23,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 79.23,
+        "Менеджер 2": 72.04,
+        "Менеджер 3": 40.53,
+        "Менеджер 4": 44.64,
+        "Менеджер 5": 70.15
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "priority": 78.63,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1063": {
+      "lead_id": "A1063",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 76.28,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 71.45,
+        "Менеджер 2": 76.28,
+        "Менеджер 3": 66.14,
+        "Менеджер 4": 62.34,
+        "Менеджер 5": 54.58
+      },
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "priority": 73.51,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1015": {
+      "lead_id": "A1015",
+      "present": true,
+      "region": "Витебск",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 79.23,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 79.23,
+        "Менеджер 2": 72.04,
+        "Менеджер 3": 40.53,
+        "Менеджер 4": 44.64,
+        "Менеджер 5": 70.15
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "priority": 72.8,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1027": {
+      "lead_id": "A1027",
+      "present": true,
+      "region": "Витебск",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 79.23,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 79.23,
+        "Менеджер 2": 72.04,
+        "Менеджер 3": 40.53,
+        "Менеджер 4": 44.64,
+        "Менеджер 5": 70.15
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "priority": 72.8,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1037": {
+      "lead_id": "A1037",
+      "present": true,
+      "region": "Витебск",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 79.23,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 79.23,
+        "Менеджер 2": 72.04,
+        "Менеджер 3": 40.53,
+        "Менеджер 4": 44.64,
+        "Менеджер 5": 70.15
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "priority": 72.8,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1047": {
+      "lead_id": "A1047",
+      "present": true,
+      "region": "Витебск",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 79.23,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 79.23,
+        "Менеджер 2": 72.04,
+        "Менеджер 3": 40.53,
+        "Менеджер 4": 44.64,
+        "Менеджер 5": 70.15
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "priority": 72.8,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1050": {
+      "lead_id": "A1050",
+      "present": true,
+      "region": "Витебск",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 79.23,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 79.23,
+        "Менеджер 2": 72.04,
+        "Менеджер 3": 40.53,
+        "Менеджер 4": 44.64,
+        "Менеджер 5": 70.15
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "priority": 72.8,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1057": {
+      "lead_id": "A1057",
+      "present": true,
+      "region": "Витебск",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 79.23,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 79.23,
+        "Менеджер 2": 72.04,
+        "Менеджер 3": 40.53,
+        "Менеджер 4": 44.64,
+        "Менеджер 5": 70.15
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 79.23,
+      "priority": 72.8,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1028": {
+      "lead_id": "A1028",
+      "present": true,
+      "region": "Брест",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_expected_gm": 69.88,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 69.88,
+        "Менеджер 2": 69.06,
+        "Менеджер 3": 43.0,
+        "Менеджер 4": 62.97,
+        "Менеджер 5": 69.68
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "priority": 68.87,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1007": {
+      "lead_id": "A1007",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 76.28,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 71.45,
+        "Менеджер 2": 76.28,
+        "Менеджер 3": 66.14,
+        "Менеджер 4": 62.34,
+        "Менеджер 5": 54.58
+      },
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "priority": 68.06,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1056": {
+      "lead_id": "A1056",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 76.28,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 71.45,
+        "Менеджер 2": 76.28,
+        "Менеджер 3": 66.14,
+        "Менеджер 4": 62.34,
+        "Менеджер 5": 54.58
+      },
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "priority": 68.06,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1062": {
+      "lead_id": "A1062",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 76.28,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 71.45,
+        "Менеджер 2": 76.28,
+        "Менеджер 3": 66.14,
+        "Менеджер 4": 62.34,
+        "Менеджер 5": 54.58
+      },
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "priority": 68.06,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1045": {
+      "lead_id": "A1045",
+      "present": true,
+      "region": "Брест",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 74.93,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 65.71,
+        "Менеджер 2": 60.39,
+        "Менеджер 3": 58.54,
+        "Менеджер 4": 74.93,
+        "Менеджер 5": 62.79
+      },
+      "best_manager": "Менеджер 4",
+      "best_score": 74.93,
+      "priority": 67.79,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1066": {
+      "lead_id": "A1066",
+      "present": true,
+      "region": "Брест",
+      "product": "офисные кресла",
+      "selected": false,
+      "dashboard_expected_gm": 74.93,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 65.71,
+        "Менеджер 2": 60.39,
+        "Менеджер 3": 58.54,
+        "Менеджер 4": 74.93,
+        "Менеджер 5": 62.79
+      },
+      "best_manager": "Менеджер 4",
+      "best_score": 74.93,
+      "priority": 67.79,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1017": {
+      "lead_id": "A1017",
+      "present": true,
+      "region": "Брест",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_expected_gm": 69.88,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 69.88,
+        "Менеджер 2": 69.06,
+        "Менеджер 3": 43.0,
+        "Менеджер 4": 62.97,
+        "Менеджер 5": 69.68
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "priority": 63.77,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1026": {
+      "lead_id": "A1026",
+      "present": true,
+      "region": "Брест",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_expected_gm": 69.88,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 69.88,
+        "Менеджер 2": 69.06,
+        "Менеджер 3": 43.0,
+        "Менеджер 4": 62.97,
+        "Менеджер 5": 69.68
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "priority": 63.77,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1036": {
+      "lead_id": "A1036",
+      "present": true,
+      "region": "Брест",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_expected_gm": 69.88,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 69.88,
+        "Менеджер 2": 69.06,
+        "Менеджер 3": 43.0,
+        "Менеджер 4": 62.97,
+        "Менеджер 5": 69.68
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "priority": 63.77,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "A1048": {
+      "lead_id": "A1048",
+      "present": true,
+      "region": "Брест",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_expected_gm": 69.88,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 69.88,
+        "Менеджер 2": 69.06,
+        "Менеджер 3": 43.0,
+        "Менеджер 4": 62.97,
+        "Менеджер 5": 69.68
+      },
+      "best_manager": "Менеджер 1",
+      "best_score": 69.88,
+      "priority": 63.77,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    }
+  },
+  "ties": [
+    {
+      "region": "Гомель",
+      "product": "офисные кресла",
+      "best_score": 76.28,
+      "leads": [
+        {
+          "lead_id": "A1007",
+          "selected": false,
+          "manager": null,
+          "best_score": 76.28
+        },
+        {
+          "lead_id": "A1024",
+          "selected": true,
+          "manager": "Менеджер 2",
+          "best_score": 76.28
+        },
+        {
+          "lead_id": "A1056",
+          "selected": false,
+          "manager": null,
+          "best_score": 76.28
+        },
+        {
+          "lead_id": "A1062",
+          "selected": false,
+          "manager": null,
+          "best_score": 76.28
+        },
+        {
+          "lead_id": "A1063",
+          "selected": false,
+          "manager": null,
+          "best_score": 76.28
+        }
+      ]
+    },
+    {
+      "region": "Гомель",
+      "product": "офисные столы",
+      "best_score": 91.51,
+      "leads": [
+        {
+          "lead_id": "A1012",
+          "selected": true,
+          "manager": "Менеджер 5",
+          "best_score": 91.51
+        },
+        {
+          "lead_id": "A1018",
+          "selected": false,
+          "manager": null,
+          "best_score": 91.51
+        },
+        {
+          "lead_id": "A1033",
+          "selected": false,
+          "manager": null,
+          "best_score": 91.51
+        },
+        {
+          "lead_id": "A1042",
+          "selected": true,
+          "manager": "Менеджер 5",
+          "best_score": 91.51
+        }
+      ]
+    }
+  ],
+  "MULTIPLE_OPTIMAL_SOLUTIONS": true,
+  "factor_roles": {
+    "priority": {
+      "in_optimal_objective": false,
+      "usage": "UI sort only: recommendations.sort(key=lambda r: (not r['selected'], -r['priority']))",
+      "formula": "best_possible.expected_gm * (0.5 + 0.5 * confidence) * urgency_boost",
+      "file": "backend/optimization/pipeline.py"
+    },
+    "urgency": {
+      "in_optimal_objective": false,
+      "usage": "Only multiplies display priority (1.08 if высокая)",
+      "file": "backend/optimization/pipeline.py"
+    },
+    "confidence": {
+      "in_optimal_objective": false,
+      "usage": "Display priority factor; greedy tie-break may use it elsewhere; reject_reason heuristic",
+      "file": "backend/optimization/pipeline.py"
+    },
+    "current_form": {
+      "in_optimal_objective": false,
+      "usage": "Explainability / managers UI only via forms_for_all + explain_recommendation",
+      "file": "backend/optimization/pipeline.py, analytics/form.py"
+    },
+    "expected_gm": {
+      "in_optimal_objective": true,
+      "usage": "Sole coefficient of x(i,m) in optimal_assign ILP",
+      "file": "backend/optimization/optimal.py"
+    }
+  },
+  "brute_force_subsets": [
+    {
+      "case": 1,
+      "apps": [
+        "A1019",
+        "A1022",
+        "A1060",
+        "A1009",
+        "A1044"
+      ],
+      "managers": [
+        "Менеджер 1",
+        "Менеджер 2",
+        "Менеджер 3"
+      ],
+      "caps": {
+        "Менеджер 1": 2,
+        "Менеджер 2": 2,
+        "Менеджер 3": 2
+      },
+      "team": 4,
+      "bruteforce_objective": 313.3,
+      "independent_ilp_objective": 313.3,
+      "production_optimal_assign_objective": 313.3,
+      "match_bf_vs_ilp": true,
+      "match_bf_vs_prod": true
+    },
+    {
+      "case": 2,
+      "apps": [
+        "A1024",
+        "A1033",
+        "A1018",
+        "A1039",
+        "A1063"
+      ],
+      "managers": [
+        "Менеджер 1",
+        "Менеджер 2",
+        "Менеджер 3"
+      ],
+      "caps": {
+        "Менеджер 1": 2,
+        "Менеджер 2": 2,
+        "Менеджер 3": 2
+      },
+      "team": 4,
+      "bruteforce_objective": 301.65,
+      "independent_ilp_objective": 301.65,
+      "production_optimal_assign_objective": 301.65,
+      "match_bf_vs_ilp": true,
+      "match_bf_vs_prod": true
+    },
+    {
+      "case": 3,
+      "apps": [
+        "A1024",
+        "A1033",
+        "A1018",
+        "A1039",
+        "A1063"
+      ],
+      "managers": [
+        "Менеджер 1",
+        "Менеджер 2",
+        "Менеджер 3"
+      ],
+      "caps": {
+        "Менеджер 1": 2,
+        "Менеджер 2": 2,
+        "Менеджер 3": 2
+      },
+      "team": 4,
+      "bruteforce_objective": 301.65,
+      "independent_ilp_objective": 301.65,
+      "production_optimal_assign_objective": 301.65,
+      "match_bf_vs_ilp": true,
+      "match_bf_vs_prod": true
+    },
+    {
+      "case": 4,
+      "apps": [
+        "A1024",
+        "A1033",
+        "A1041",
+        "A1019",
+        "A1007"
+      ],
+      "managers": [
+        "Менеджер 1",
+        "Менеджер 2",
+        "Менеджер 3"
+      ],
+      "caps": {
+        "Менеджер 1": 2,
+        "Менеджер 2": 2,
+        "Менеджер 3": 2
+      },
+      "team": 4,
+      "bruteforce_objective": 394.6,
+      "independent_ilp_objective": 394.6,
+      "production_optimal_assign_objective": 394.6,
+      "match_bf_vs_ilp": true,
+      "match_bf_vs_prod": true
+    },
+    {
+      "case": 5,
+      "apps": [
+        "A1024",
+        "A1033",
+        "A1018",
+        "A1044",
+        "A1060",
+        "A1015"
+      ],
+      "managers": [
+        "Менеджер 1",
+        "Менеджер 2",
+        "Менеджер 3"
+      ],
+      "caps": {
+        "Менеджер 1": 2,
+        "Менеджер 2": 2,
+        "Менеджер 3": 2
+      },
+      "team": 4,
+      "bruteforce_objective": 316.5,
+      "independent_ilp_objective": 316.5,
+      "production_optimal_assign_objective": 316.5,
+      "match_bf_vs_ilp": true,
+      "match_bf_vs_prod": true
+    }
+  ],
+  "a1033_vs_a1024": {
+    "A1024": {
+      "lead_id": "A1024",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные кресла",
+      "selected": true,
+      "dashboard_expected_gm": 76.28,
+      "dashboard_manager": "Менеджер 2",
+      "scores_by_manager": {
+        "Менеджер 1": 71.45,
+        "Менеджер 2": 76.28,
+        "Менеджер 3": 66.14,
+        "Менеджер 4": 62.34,
+        "Менеджер 5": 54.58
+      },
+      "best_manager": "Менеджер 2",
+      "best_score": 76.28,
+      "priority": 68.06,
+      "reject_reason": null
+    },
+    "A1033": {
+      "lead_id": "A1033",
+      "present": true,
+      "region": "Гомель",
+      "product": "офисные столы",
+      "selected": false,
+      "dashboard_expected_gm": 91.51,
+      "dashboard_manager": null,
+      "scores_by_manager": {
+        "Менеджер 1": 59.46,
+        "Менеджер 2": 59.51,
+        "Менеджер 3": 69.86,
+        "Менеджер 4": 64.07,
+        "Менеджер 5": 91.51
+      },
+      "best_manager": "Менеджер 5",
+      "best_score": 91.51,
+      "priority": 89.59,
+      "reject_reason": "низкая ожидаемая GM относительно выбранных заявок"
+    },
+    "force_A1033_delta": 0.0,
+    "force_A1033_manager": "Менеджер 5",
+    "force_A1033_displaces": [
+      "A1042"
+    ],
+    "explanation": "A1033 displayed Expected GM 91.51 is best-manager (M5) score. M5 already has 10 leads at the same 91.51 (perfect ties, e.g. A1042, A1012). A1024 Expected GM is 76.28 assigned to M2; 68.06 is priority only. Comparing A1033 display to A1024 priority is an apples-to-oranges UI reading. Forcing A1033 displaces A1042 with objective delta 0.0 (MULTIPLE_OPTIMAL_SOLUTIONS)."
+  },
+  "CURRENT_SELECTION_OPTIMAL": "YES",
+  "display_clarification": {
+    "note": "Numbers ~68.06 and ~89.59 on dashboard for A1024/A1033 are PRIORITY, not Expected GM.",
+    "A1024_expected_gm": 76.28,
+    "A1024_priority": 68.06,
+    "A1033_expected_gm": 91.51,
+    "A1033_priority": 89.59
+  }
+}

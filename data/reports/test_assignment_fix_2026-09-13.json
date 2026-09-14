@@ -1,0 +1,346 @@
+{
+  "title": "LeadAssign full test-assignment audit (post C1–C3 fixes)",
+  "date": "2026-09-14",
+  "math_objective": {
+    "documented": "maximize Σ ExpectedGM via ILP with full individual caps + team_capacity",
+    "actual_code": "PuLP CBC ILP: x(i,m) binary; Σ_m x<=1; Σ_i x<=capacity_m; Σ x<=team_capacity; objective ExpectedGM; no proportional slot shrink",
+    "expected_gm_formula": "smoothed_P(sale|negotiation) × weighted_avg(GM | sale)",
+    "p_sale_meaning": "P(sale | negotiation occurred) from historical talks, not P(negotiation)",
+    "discount": "affects synthetic generator and avg_discount display; GM|sale already reflects deals with discounts"
+  },
+  "smoothing": {
+    "formula": "(s + prior*g)/(n+prior)",
+    "prior_strength_default": 8.0,
+    "global_example": 0.3,
+    "cases": [
+      {
+        "successes": 0,
+        "trials": 0,
+        "raw": null,
+        "adjusted": 0.3,
+        "shrinks_from_1": false
+      },
+      {
+        "successes": 1,
+        "trials": 1,
+        "raw": 1.0,
+        "adjusted": 0.377778,
+        "shrinks_from_1": true
+      },
+      {
+        "successes": 2,
+        "trials": 2,
+        "raw": 1.0,
+        "adjusted": 0.44,
+        "shrinks_from_1": true
+      },
+      {
+        "successes": 10,
+        "trials": 10,
+        "raw": 1.0,
+        "adjusted": 0.688889,
+        "shrinks_from_1": true
+      },
+      {
+        "successes": 100,
+        "trials": 100,
+        "raw": 1.0,
+        "adjusted": 0.948148,
+        "shrinks_from_1": true
+      },
+      {
+        "successes": 0,
+        "trials": 10,
+        "raw": 0.0,
+        "adjusted": 0.133333,
+        "shrinks_from_1": false
+      },
+      {
+        "successes": 1,
+        "trials": 10,
+        "raw": 0.1,
+        "adjusted": 0.188889,
+        "shrinks_from_1": false
+      },
+      {
+        "successes": 5,
+        "trials": 100,
+        "raw": 0.05,
+        "adjusted": 0.068519,
+        "shrinks_from_1": false
+      }
+    ],
+    "pass_2of2_not_100": true
+  },
+  "greedy_counterexample": {
+    "description": "Classic capacity conflict counterexample",
+    "greedy_gm": 100,
+    "greedy_assignments": [
+      {
+        "application_id": "A",
+        "manager": "Менеджер 1",
+        "expected_gm": 100,
+        "confidence": 0.9,
+        "p_sale": 0.4,
+        "method": "greedy"
+      },
+      {
+        "application_id": "B",
+        "manager": "Менеджер 2",
+        "expected_gm": 0,
+        "confidence": 0.9,
+        "p_sale": 0.4,
+        "method": "greedy"
+      }
+    ],
+    "optimal_gm": 197,
+    "optimal_assignments": [
+      {
+        "application_id": "A",
+        "manager": "Менеджер 2",
+        "expected_gm": 99,
+        "confidence": 0.9,
+        "p_sale": 0.4,
+        "method": "optimal"
+      },
+      {
+        "application_id": "B",
+        "manager": "Менеджер 1",
+        "expected_gm": 98,
+        "confidence": 0.9,
+        "p_sale": 0.4,
+        "method": "optimal"
+      }
+    ],
+    "expected_optimal": 197,
+    "optimal_beats_or_equals_greedy": true,
+    "optimal_matches_theory": true,
+    "pass": true
+  },
+  "sum_caps_gt_team": {
+    "note": "sum(caps)=10 > team=5 → full caps preserved; all 5 to M1",
+    "optimal_gm": 500,
+    "optimal_load": {
+      "Менеджер 1": 5
+    },
+    "greedy_gm": 500,
+    "greedy_load": {
+      "Менеджер 1": 5
+    },
+    "true_mip_gm": 500,
+    "optimal_is_true_mip": true,
+    "no_proportional_shrink": true,
+    "pass": true
+  },
+  "bruteforce_small": {
+    "algorithm_gm": 33,
+    "bruteforce_gm": 33.0,
+    "pass": true
+  },
+  "scenario_70_50": {
+    "scenario": "normal demo 70/50",
+    "invariants": {
+      "selected": 50,
+      "queued": 20,
+      "load": {
+        "Менеджер 3": 10,
+        "Менеджер 4": 10,
+        "Менеджер 1": 10,
+        "Менеджер 5": 10,
+        "Менеджер 2": 10
+      },
+      "expected_gm": 6074.34,
+      "issues": [],
+      "ok": true
+    },
+    "baselines": {
+      "random": 4093.15,
+      "manual": 5658.94,
+      "greedy": 5989.9,
+      "optimal": 6074.34
+    },
+    "lift_vs_manual_pct": 7.3,
+    "pass": true
+  },
+  "capacity_size_matrix": {
+    "40_50": {
+      "selected": 40,
+      "queued": 0,
+      "expected_selected": 40,
+      "pass": true,
+      "issues": []
+    },
+    "50_50": {
+      "selected": 50,
+      "queued": 0,
+      "expected_selected": 50,
+      "pass": true,
+      "issues": []
+    },
+    "70_50": {
+      "selected": 50,
+      "queued": 20,
+      "expected_selected": 50,
+      "pass": true,
+      "issues": []
+    },
+    "100_50": {
+      "selected": 50,
+      "queued": 50,
+      "expected_selected": 50,
+      "pass": true,
+      "issues": []
+    },
+    "0_50": {
+      "selected": 0,
+      "queued": 0,
+      "pass": true,
+      "note": "empty apps skipped"
+    }
+  },
+  "uneven_capacity": {
+    "caps": {
+      "Менеджер 1": 20,
+      "Менеджер 2": 15,
+      "Менеджер 3": 10,
+      "Менеджер 4": 5,
+      "Менеджер 5": 0
+    },
+    "load": {
+      "Менеджер 3": 10,
+      "Менеджер 2": 15,
+      "Менеджер 1": 20,
+      "Менеджер 4": 5
+    },
+    "m5_zero": true,
+    "invariants": {
+      "selected": 50,
+      "queued": 20,
+      "load": {
+        "Менеджер 3": 10,
+        "Менеджер 2": 15,
+        "Менеджер 1": 20,
+        "Менеджер 4": 5
+      },
+      "expected_gm": 5316.52,
+      "issues": [],
+      "ok": true
+    },
+    "pass": true
+  },
+  "form_and_freshness": {
+    "form_direction": "down",
+    "form_recent": 54.15,
+    "form_previous": 192.45,
+    "form_in_pairscore_fields": false,
+    "form_used_in_optimal_objective": false,
+    "form_used_in_explanation": true,
+    "recency_affects_score": true,
+    "p_sale_with_decay": 0.2079,
+    "p_sale_without_decay": 0.4548,
+    "pass_freshness_in_stats": true,
+    "pass_form_metric_in_objective": false
+  },
+  "confidence_urgency": {
+    "confidence_in_optimal_cost_matrix": false,
+    "confidence_in_greedy_sort_tiebreak": true,
+    "confidence_in_display_priority": true,
+    "urgency_in_optimal": false,
+    "urgency_in_display_priority": true,
+    "source_client_budget_in_scoring": false
+  },
+  "fallback": {
+    "with_min_obs_5": {
+      "fallback_level": "global",
+      "used_fallback": true,
+      "n_observations": 19.19,
+      "confidence": 0.3173,
+      "p_sale": 0.5566
+    },
+    "with_min_obs_1": {
+      "fallback_level": "manager_region_product",
+      "used_fallback": false,
+      "raw_p": 1.0,
+      "smoothed_p": 0.6421
+    },
+    "pass_fallback_when_sparse": true,
+    "pass_narrow_when_min_obs_1": true
+  },
+  "data_leakage": {
+    "applications_have_outcome_cols": false,
+    "scoring_filters_date_strictly_before_as_of": true,
+    "future_rows_change_scores": false,
+    "n_changed_pairs": 0,
+    "sample_diffs": [],
+    "pass_no_leak_if_history_clean": true,
+    "pass_defense_in_depth_date_filter": true,
+    "critical": false,
+    "pass": true
+  },
+  "manual_override": {
+    "stores_reason": true,
+    "stores_new_manager": true,
+    "stores_original_recommendation_field": true,
+    "original_manager": "Менеджер 5",
+    "manual_manager": "Менеджер 1",
+    "override_object_present": true,
+    "recalculates_expected_gm": true,
+    "enforces_capacity_after_override": true,
+    "rejects_when_full": true,
+    "capacity_violations": {},
+    "before_load": {
+      "Менеджер 2": 10,
+      "Менеджер 1": 7,
+      "Менеджер 5": 10,
+      "Менеджер 3": 8,
+      "Менеджер 4": 10
+    },
+    "after_load": {
+      "Менеджер 1": 8,
+      "Менеджер 2": 10,
+      "Менеджер 3": 8,
+      "Менеджер 4": 10,
+      "Менеджер 5": 9
+    },
+    "pass": true
+  },
+  "factor_split": {
+    "affects_assignment_objective": [
+      "expected_gm = smoothed P(sale|negotiation history) × expected GM|sale",
+      "region/product/manager via historical matching + fallback",
+      "recency weights on historical stats",
+      "manager capacity / team capacity constraints (ILP, no proportional shrink)"
+    ],
+    "display_only_or_secondary": [
+      "current form metric (UI + explanation text only)",
+      "confidence (display, reject_reason heuristic, greedy tie-break; NOT in optimal objective)",
+      "urgency (display priority sort only)",
+      "source / client_type / estimated_budget (stored, not in score_pair)",
+      "avg_discount (shown in stats, not separate objective term)"
+    ]
+  },
+  "verdicts": {
+    "BUSINESS_LOGIC": "PASS",
+    "ASSIGNMENT_OPTIMIZATION": "PASS",
+    "70_TO_50_SELECTION": "PASS",
+    "CAPACITY": "PASS",
+    "EXPECTED_GM": "PASS",
+    "SMALL_SAMPLE": "PASS",
+    "FRESHNESS": "PASS",
+    "DATA_LEAKAGE": "PASS",
+    "FALLBACK": "PASS",
+    "BASELINE": "PASS",
+    "EXPLAINABILITY": "PASS",
+    "MANUAL_OVERRIDE": "PASS",
+    "TEST_COVERAGE": "PASS",
+    "TEST_ASSIGNMENT_COMPLIANCE": "PASS"
+  },
+  "blocking_issues": [],
+  "READY_TO_SHOW_EMPLOYER": "YES",
+  "ready_caveats": [
+    "Current form metric is explainability-only (not in optimal objective).",
+    "Confidence is reliability/explainability/tie-break — not maximized in ILP objective.",
+    "Urgency affects display priority only, not optimal objective.",
+    "MVP models P(sale|negotiation), not P(negotiation happens)."
+  ]
+}

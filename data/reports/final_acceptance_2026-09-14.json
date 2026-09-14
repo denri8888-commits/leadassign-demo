@@ -1,0 +1,99 @@
+{
+  "title": "LeadAssign final acceptance",
+  "date": "2026-09-14",
+  "package": "LeadAssign_Nemetskie_Okna_Bel_FINAL_2026-09-13.zip",
+  "clean_unzip_dir": "d:/LeadAssign_ACCEPTANCE_2026-09-14",
+  "code_changed_during_acceptance": false,
+  "technical": {
+    "pytest": {"passed": 33, "failed": 0, "skipped": 0},
+    "full_audit_ready": "YES",
+    "leakage": "PASS",
+    "ilp_sum_caps_gt_team": "PASS",
+    "bruteforce": "PASS",
+    "capacity_70_50_20": "PASS",
+    "override": "PASS"
+  },
+  "product": {
+    "dashboard": "PASS",
+    "recommendations": "PASS",
+    "explainability": "PASS",
+    "queue_20_with_reasons": "PASS",
+    "manual_override": "PASS",
+    "baseline": "PASS",
+    "capacity_simulator": "PASS",
+    "simulation": "PASS",
+    "import_routes": "PASS",
+    "terminology": "PARTIAL"
+  },
+  "test_task_answer_matrix": {
+    "70_apps": "PASS",
+    "capacity_50": "PASS",
+    "best_assignments": "PASS",
+    "manager_region_product": "PASS",
+    "expected_gm": "PASS",
+    "smoothing": "PASS",
+    "fallback": "PASS",
+    "freshness": "PASS",
+    "capacity": "PASS",
+    "baseline": "PASS",
+    "explainability": "PASS",
+    "manual_override": "PASS",
+    "economic_effect": "PASS",
+    "mvp": "PASS",
+    "stack": "PASS",
+    "honesty_form_confidence_urgency": "PASS"
+  },
+  "packaging": {
+    "zip_ok": true,
+    "clean_launch": true,
+    "no_secrets_or_venv": true,
+    "employer_readme_bat_first": true,
+    "includes_build_release_bat": true
+  },
+  "findings": [
+    {
+      "id": "DOC-README-ROOT",
+      "severity": "medium",
+      "where": "README.md (project root, NOT in FINAL ZIP)",
+      "problem": "Still references GermanWindows_AI_TestTask_Demo.zip and scipy linear_sum_assignment",
+      "employer_impact": "Confusing if full repo folder is shared instead of FINAL ZIP",
+      "minimal_fix": "Update ZIP name + describe PuLP ILP in algorithm section",
+      "fixed_in_this_audit": false
+    },
+    {
+      "id": "UI-GM-JARGON",
+      "severity": "low",
+      "where": "backend/optimization/pipeline.py reject_reason; analytics/explanation.py reasons",
+      "problem": "User-facing Russian strings still say 'GM'",
+      "employer_impact": "Slight jargon on queue reason / explanation bullets",
+      "minimal_fix": "Replace with 'ожидаемая валовая маржа'",
+      "fixed_in_this_audit": false
+    },
+    {
+      "id": "DOC-ANSWER-CLOSING",
+      "severity": "low",
+      "where": "docs/test_task_answer.md §18",
+      "problem": "Phrase 'учётом формы во времени' can be misread as form-in-objective",
+      "employer_impact": "Minor ambiguity; earlier sections are already honest",
+      "minimal_fix": "Say 'учётом свежести истории (recency)'",
+      "fixed_in_this_audit": false
+    },
+    {
+      "id": "PKG-BUILD-BAT",
+      "severity": "low",
+      "where": "ZIP root build_release.bat",
+      "problem": "Developer packaging script shipped in employer ZIP",
+      "employer_impact": "Clutter only",
+      "minimal_fix": "Exclude from assemble_release.ps1",
+      "fixed_in_this_audit": false
+    }
+  ],
+  "verdict": {
+    "TECHNICAL_READY": "YES",
+    "PRODUCT_READY": "YES",
+    "DOCUMENTATION_READY": "PARTIAL",
+    "PACKAGE_READY": "YES",
+    "FINAL_READY": "YES"
+  },
+  "recommendation": "Ship FINAL ZIP + employer README as-is. Optionally sync root README and GM strings after explicit confirmation before sharing the full repository."
+}

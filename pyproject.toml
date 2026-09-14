@@ -1,0 +1,11 @@
+[project]
+name = "leadassign"
+version = "1.0.0"
+description = "LeadAssign demo for employer test task"
+requires-python = ">=3.11"
+
+[tool.vercel]
+entrypoint = "api.index:app"
+
+[tool.vercel.scripts]
+build = "npm --prefix frontend run build && node scripts/copy_frontend_static.mjs"
