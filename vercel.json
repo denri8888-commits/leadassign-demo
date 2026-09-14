@@ -1,11 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm --prefix frontend ci",
-  "buildCommand": "npm --prefix frontend run build && node scripts/copy_frontend_static.mjs",
   "functions": {
     "api/index.py": {
       "maxDuration": 60,
-      "memory": 1024,
       "includeFiles": "{backend/analytics/**,backend/app/**,backend/data/**,backend/optimization/**,backend/static/**}"
     }
   }

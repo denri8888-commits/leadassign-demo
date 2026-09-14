@@ -3,9 +3,18 @@ name = "leadassign"
 version = "1.0.0"
 description = "LeadAssign demo for employer test task"
 requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110.0",
+  "pandas>=2.1.0,<3",
+  "numpy>=1.26.0,<3",
+  "pydantic>=2.5.0",
+  "python-multipart>=0.0.6",
+  "openpyxl>=3.1.0",
+  "pulp>=2.8.0,<3",
+]
 
 [tool.vercel]
 entrypoint = "api.index:app"
 
 [tool.vercel.scripts]
-build = "npm --prefix frontend run build && node scripts/copy_frontend_static.mjs"
+build = "npm --prefix frontend ci && npm --prefix frontend run build && node scripts/copy_frontend_static.mjs"
