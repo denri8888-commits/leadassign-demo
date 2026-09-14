@@ -13,8 +13,8 @@
 ## Как передать работодателю
 
 1. **Главный PDF:** `docs/employer_pdf/Ответ_на_тестовое_задание_LeadAssign.pdf`  
-2. **Ссылка на онлайн-демо** (Vercel) — после деплоя из GitHub  
-3. **Код на GitHub**  
+2. **Онлайн-демо:** https://leadassign-demo.vercel.app  
+3. **Код на GitHub:** https://github.com/denri8888-commits/leadassign-demo  
 4. **ZIP** как запасной офлайн-вариант: `LeadAssign_Nemetskie_Okna_Bel_FINAL_2026-09-14.zip`
 
 Старые архивы `GermanWindows_*` и `*_FINAL_2026-09-13.zip` не использовать.
